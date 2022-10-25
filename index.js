@@ -10,6 +10,12 @@ app.get("/", (req, res) => {
   res.send(courses);
 });
 
+app.get("/course/:id", (req, res) => {
+  const id = req.params.id;
+  const selectedCard = courses.find((card) => card.id === id);
+  res.send(selectedCard);
+});
+
 app.listen(port, () => {
   console.log("my port is", port);
 });
